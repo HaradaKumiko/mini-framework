@@ -2,7 +2,15 @@
 
 class User{
 
-  public $name = 'Harada Kumiko';
+  private $_db;
+
+  public function __construct(){
+    $this->_db = Database::getInstance();
+  }
+
+  public function index(){
+    return $this->_db->get_info('tb_users');
+  }
 
 }
 

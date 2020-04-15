@@ -7,8 +7,13 @@ class HomeController extends Controller{
   // }
 
   public function index(){
-    $user = $this->model('User');
-    return $this->view('home', [ 'nama' => $user->name]);  }
+    return $this->view('home');
+  }
+
+  public function getusers(){
+   $user = $this->model('User')->index();
+   return $this->view('users', ['users' => $user]);
+  }
 
 }
 
